@@ -7,23 +7,41 @@
 //
 
 #import "ViewController.h"
+#import "DSCalendarController.h"
 
 @interface ViewController ()
+
 
 @end
 
 @implementation ViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+
+    
+
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)toSingleVC:(id)sender {
+    [self toCanlendarVC:true];
 }
 
 
+- (IBAction)toSectionVC:(id)sender {
+    [self toCanlendarVC:false];
+}
+
+
+- (void)toCanlendarVC:(BOOL)isSingleSelect {
+    
+    DSCalendarController *vc = [DSCalendarController new];
+    vc.isSingleSelect = isSingleSelect;
+    [self.navigationController pushViewController:vc animated:true];
+}
 @end
